@@ -1,46 +1,45 @@
-<table>
-  <thead>
-    <th>Location Name</th>
-    <th>Address</th>
-  </thead>
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.name %></td>
-        <td><%= location.description %></td>
-        <td><%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote!<% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="component component--centered squiggle-border-bottom">
+  <div class="component__title">
+    <h2>Early Voting</h2>
+  </div>
+  <div class="component__intro">Early voting is similar to absentee voting, however all residents are eligible. Throughout the week prior to Election Day, you will be able to mail in ballots to the Elections Department or vote at any of the nine locations around the City. Unlike traditional polling, you are not assigned to one location and can visit the early voting location that is most convenient for you.</div>
+</div>
+<div class="component component--centered component--smallTop">
+  <h3>Where do I vote?</h3>
+  <p>Locations for early voting have not been decided. We're looking for input from residents on where to place early voting sites so they will be convenient for residents—accessible from your home, on your lunch break, or while running errands. Choose a site on the map that you would like to see as an early voting location.</p>
+</div>
 
-<div id="map"></div>
 
-<script>
-  var locationMap = new GMaps({
-    div: '#map',
-    lat: 42.360331,
-    lng: -71.057996,
-    mapType: 'roadmap',
-    zoom: 13
-  });
+<div id="tableComponent" class="component component--centered">
+  <div class="component__title">
+    <h2>Voting Locations</h2>
+  </div>
+  <table>
+    <thead>
+      <th>Location Name</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr class="location" data-lng="<%= location.lng %>" data-lat="<%= location.lat %>" data-template="#location-<%=location.id %>">
+          <td><%= location.name %></td>
+          <td><%= location.description %></td>
+          <td><%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote for <%= location.name %><% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-  GMaps.geolocate({
-    success: function(position) {
-      locationMap.setCenter(position.coords.latitude, position.coords.longitude);
-    },
-    error: function(position) {
-      locationMap.setCenter(42.360331, -71.057996);
-    }
-  });
-
+<div aria-role="hidden" class="hidden">
   <% @locations.each do |location| %>
-    locationMap.addMarker({
-      lat: <%= location.lat %>,
-      lng: <%= location.lng %>,
-      infoWindow: {
-        content: '<h4><%= location.name %></h4><p><%= escape_javascript(simple_format(location.description)) %></p><p><%= button_to yay_location_path(location), {method: :post}, {class: 'btn btn-small btn-yay'} do %>Vote!<% end %></p>'
-      }
-    });
+    <div class="location-template" id="location-<%=location.id %>">
+      <h3>Would you like to vote for?</h3>
+      <h4><%= location.name %></h4>
+      <address><%= simple_format location.description %></address>
+      <%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote for <%= location.name %><% end %>
+    </div>
   <% end %>
-</script>
+</div>
+
+<div id="map" class="hidden"></div>
