@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CobEarlyVoting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBySQnQIwp0KZYhLiqVpnOFi-H_Bs8Su9s"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= yield %>
+  <script src="//cob-header.herokuapp.com/header.js"></script>
+</body>
+</html>

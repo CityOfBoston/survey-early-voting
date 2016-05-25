@@ -1,0 +1,46 @@
+<table>
+  <thead>
+    <th>Location Name</th>
+    <th>Address</th>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.name %></td>
+        <td><%= location.description %></td>
+        <td><%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote!<% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div id="map"></div>
+
+<script>
+  var locationMap = new GMaps({
+    div: '#map',
+    lat: 42.360331,
+    lng: -71.057996,
+    mapType: 'roadmap',
+    zoom: 13
+  });
+
+  GMaps.geolocate({
+    success: function(position) {
+      locationMap.setCenter(position.coords.latitude, position.coords.longitude);
+    },
+    error: function(position) {
+      locationMap.setCenter(42.360331, -71.057996);
+    }
+  });
+
+  <% @locations.each do |location| %>
+    locationMap.addMarker({
+      lat: <%= location.lat %>,
+      lng: <%= location.lng %>,
+      infoWindow: {
+        content: '<h4><%= location.name %></h4><p><%= escape_javascript(simple_format(location.description)) %></p><p><%= button_to yay_location_path(location), {method: :post}, {class: 'btn btn-small btn-yay'} do %>Vote!<% end %></p>'
+      }
+    });
+  <% end %>
+</script>

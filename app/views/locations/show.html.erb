@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @location.name %></h1>
+<address>
+  <%= simple_format(@location.description) %>
+</address>
+
+<%= link_to 'Back', root_path %>
