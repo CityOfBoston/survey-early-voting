@@ -17,6 +17,10 @@ $charlesriverblue: #091F2F;
   &--centered {
     max-width: 90em;
     margin: 0 auto;
+
+    @media (max-width: 1100px) {
+      margin: 0 20px;
+    }
   }
 
   &--smallTop {
