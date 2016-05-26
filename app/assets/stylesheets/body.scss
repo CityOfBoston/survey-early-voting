@@ -76,7 +76,7 @@ address {
     padding-bottom: 7px;
     border-bottom: 1px dashed #D2D2D2;
     color: rgb(146, 146, 146);
-    width: 220px;
+    width: 250px;
   }
 
   button {
@@ -94,7 +94,7 @@ address {
     padding: 12px 20px;
     cursor: pointer;
     letter-spacing: 1px;
-    max-width: 220px;
+    width: 250px;
   }
 
   h4 {
@@ -103,6 +103,7 @@ address {
     text-transform: uppercase;
     font-size: 1.25em;
     font-weight: 300;
+    width: 250px;
   }
 
   address {
@@ -111,6 +112,7 @@ address {
     font-size: 1.16666666667em;
     color: $charlesriverblue;
     margin-bottom: 25px;
+    width: 250px;
 
     p {
       margin: 0;
