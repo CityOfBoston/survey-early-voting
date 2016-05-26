@@ -1,8 +1,27 @@
-<ul class="dashboard">
-  <% @locations.each do |location| %>
-    <li id="location-<%= location.id %>" class="dashboard-item">
-      <span class="location__name"><%= location.name %></span>
-      <span class="location__total"><%= location.votes.count %></span>
-    </li>
-  <% end %>
-</ul>
+<div class="component component--centered component--small">
+  <div class="component__title">
+    <h2>Vote totals</h2>
+  </div>
+  <ul class="dashboard">
+    <% @locations.each do |location| %>
+      <li id="location-<%= location.id %>" class="dashboard-item" data-votes="<%= location.votes_count %>">
+        <span class="location__name"><%= location.name %></span>
+        <span class="location__total"><%= location.votes_count %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<script src="//js.pusher.com/2.2/pusher.min.js"></script>
+<script>
+  var pusher = new Pusher('<%= Pusher.key %>');
+  var channel = pusher.subscribe('dashboard');
+
+  channel.bind('update', function(data) {
+    var el = $('#location-' + data.id);
+    el.find('.location__total').text(data.vote_count || 0);
+    el.data('votes', data.vote_count);
+
+    $('body').trigger('sort_list');
+  });
+</script>

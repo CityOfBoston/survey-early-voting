@@ -13,3 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+var sort_li = function (a, b) {
+  return ($(b).data('votes')) > ($(a).data('votes')) ? 1 : -1;
+}
+
+var handleSort = function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('.dashboard-item'),0);
+  console.log(els.sort(sort_li));
+
+
+  var els = $('.dashboard').find('.dashboard-item').sort(sort_li);
+  $('.dashboard').html('').append(els);
+}
+
+$(function () {
+  $('body').on('sort_list', handleSort);
+})

@@ -13,14 +13,5 @@
   <%= yield %>
   <script src="//cob-header.herokuapp.com/header.js"></script>
   <footer class="footer" aria-role="hidden"></footer>
-
-  <script src="//js.pusher.com/2.2/pusher.min.js"></script>
-  <script>
-    var pusher = new Pusher('<%= Pusher.key %>'); // uses your APP KEY
-    var channel = pusher.subscribe('test_channel');
-    channel.bind('greet', function(data) {
-      alert(data.greeting);
-    });
-  </script>
 </body>
 </html>
