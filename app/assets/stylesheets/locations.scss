@@ -9,14 +9,6 @@ $charlesriverblue: #091F2F;
   width: 100%;
   height: 75%;
   border-bottom: 3px solid $charlesriverblue;
-
-  @media (max-width: 600px) {
-    height: 90%;
-  }
-
-  @media (max-width: 480px) {
-    height: 100%;
-  }
 }
 
 .component {
