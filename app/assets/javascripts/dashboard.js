@@ -13,5 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require 01-maps.js
-//= require locations

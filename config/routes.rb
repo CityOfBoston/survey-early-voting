@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dashboard
+
   resources :locations do
     member do
       post 'yay'

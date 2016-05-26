@@ -1,0 +1,8 @@
+<ul class="dashboard">
+  <% @locations.each do |location| %>
+    <li id="location-<%= location.id %>" class="dashboard-item">
+      <span class="location__name"><%= location.name %></span>
+      <span class="location__total"><%= location.votes.count %></span>
+    </li>
+  <% end %>
+</ul>

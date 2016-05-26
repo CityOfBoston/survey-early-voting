@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Early voting dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href='https://fonts.googleapis.com/css?family=Lora:400italic|Montserrat:700' rel='stylesheet' type='text/css'>
+  <script src="https://cdn.ably.io/lib/ably.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="notice"><%= notice %></div>
+  <%= yield %>
+  <script src="//cob-header.herokuapp.com/header.js"></script>
+  <footer class="footer" aria-role="hidden"></footer>
+</body>
+</html>
