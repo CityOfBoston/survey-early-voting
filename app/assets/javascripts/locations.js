@@ -24,7 +24,8 @@ var buildMap = function () {
     lat: 42.360331,
     lng: -71.057996,
     mapType: 'roadmap',
-    zoom: 13
+    zoom: 13,
+    scrollwheel: false
   });
 
   GMaps.geolocate({
