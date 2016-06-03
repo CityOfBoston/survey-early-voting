@@ -1,4 +1,6 @@
 $charlesriverblue: #091F2F;
+$optimisticblue: #288BE4;
+$freedomtrailred: rgb(251,77,66);
 
 html, body {
   margin: 0;
@@ -62,6 +64,27 @@ address {
   font-style: normal;
 }
 
+.btn {
+  font-size: 1.16666666667em;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background-color: #288BE4;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  color: #fff;
+  padding: 12px 20px;
+  cursor: pointer;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: $freedomtrailred;
+  }
+}
+
 .gm-style-iw {
   padding: 15px 15px 15px 10px;
 
@@ -76,28 +99,6 @@ address {
     padding-bottom: 7px;
     border-bottom: 1px dashed #D2D2D2;
     color: rgb(146, 146, 146);
-    width: 250px;
-
-    @media (max-width: 500px) {
-      width: 200px;
-    }
-  }
-
-  button {
-    font-size: 1.16666666667em;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    background-color: #288BE4;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: block;
-    width: 100%;
-    color: #fff;
-    padding: 12px 20px;
-    cursor: pointer;
-    letter-spacing: 1px;
     width: 250px;
 
     @media (max-width: 500px) {

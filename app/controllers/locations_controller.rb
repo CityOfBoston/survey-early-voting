@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @has_posted = cookies[:posted] || false
   end
 
   def yay
