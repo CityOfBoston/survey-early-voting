@@ -1,6 +1,37 @@
-<h1><%= @location.name %></h1>
-<address>
-  <%= simple_format(@location.description) %>
-</address>
+<div class="header">
+  <h1>City of Boston Early Voting Location Selection</h1>
+</div>
 
-<%= link_to 'Back', root_path %>
+<div id="breadcrumb">
+  <div class="breadcrumb">
+    <%= link_to 'Location selection', root_path %><span class="crumbs-separator"> &gt; </span>Vote for <%= @location.name %>
+  </div>
+</div>
+
+<div class="component component--centered squiggle-border-bottom">
+  <div class="component__title">
+    <h2><%= @location.name %></h2>
+    <div class="component__location"><%= @location.description %></div>
+  </div>
+  <div class="component__intro">
+    You've selected <%= @location.name %> as an early voting location. Fill out the form below to let us know what times would be most convenient for you.
+  </div>
+</div>
+
+<div class="component component--centered component--smallTop">
+  <%= form_for [@location, Vote.new] do |f| %>
+    <div class="form-item form-type-textfield form-item-name">
+      <%= f.label :day, "Which day is most convenient?", class: 'block-label' %>
+      <%= f.collection_radio_buttons :day, [['sunday', 'Sunday'], ['monday', 'Monday'], ['tuesday', 'Tuesday'], ['wednesday', 'Wednesday'], ['thursday', 'Thursday'], ['friday', 'Friday'], ['saturday', 'Saturday']], :first, :last %>
+    </div>
+    <div class="form-item form-type-textfield form-item-name">
+      <%= f.label :time, "What time of day is most convenient?", class: 'block-label' %>
+      <%= f.collection_radio_buttons :time, [['early_morning', '6AM-9AM'], ['morning', '9AM-12PM'], ['early_afternoon', '12PM-3PM'], ['afternoon', '3PM-6PM'], ['evening', '6PM-9PM']], :first, :last %>
+    </div>
+    <div class="form-item form-type-textfield form-item-name">
+      <%= f.label :comment, "Anything else you'd like us to know?", class: 'block-label' %>
+      <%= f.text_field :comment, :class => "form-text" %>
+    </div>
+    <%= f.button do %>Vote for <%= @location.name %><% end %>
+  <% end %>
+</div>

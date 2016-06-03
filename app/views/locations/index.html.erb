@@ -1,3 +1,7 @@
+<div class="header">
+  <h1>City of Boston Early Voting Location Selection</h1>
+</div>
+
 <div class="component component--centered squiggle-border-bottom">
   <div class="component__title">
     <h2>Early Voting</h2>
@@ -24,7 +28,7 @@
         <tr class="location" data-lng="<%= location.lng %>" data-lat="<%= location.lat %>" data-template="#location-<%=location.id %>">
           <td><%= location.name %></td>
           <td><%= location.description %></td>
-          <td><%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote for <%= location.name %><% end %></td>
+          <td><%= link_to location, {class: 'btn btn-small btn-yay'} do %>This one<% end %></td>
         </tr>
       <% end %>
     </tbody>
@@ -37,7 +41,7 @@
       <h3>Would you like to vote for?</h3>
       <h4><%= location.name %></h4>
       <address><%= simple_format location.description %></address>
-      <%= button_to yay_location_path(location), {method: :post, remote: true}, {class: 'btn btn-small btn-yay'} do %>Vote for <%= location.name %><% end %>
+      <%= link_to location, {class: 'btn btn-small btn-yay'} do %>This one<% end %>
     </div>
   <% end %>
 </div>

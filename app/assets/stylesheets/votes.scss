@@ -1,0 +1,31 @@
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$charlesriverblue: #091F2F;
+$freedomtrailred: rgb(251,77,66);
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.block-label {
+  display: block;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 116.666666667%;
+  color: $charlesriverblue;
+  margin-bottom: 5px;
+}
+
+.form-text {
+  color: #091f2f;
+  border: 3px solid #091f2f;
+  padding: 5px 15px;
+  font-family: "Lora", serif;
+  font-size: 150%;
+  font-style: normal;
+  font-variant-caps: normal;
+  font-weight: normal;
+  line-height: 2.22222222;
+}

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $charlesriverblue: #091F2F;
+$freedomtrailred: rgb(251,77,66);
 
 #map {
   border-top: 3px solid $charlesriverblue;
@@ -34,6 +35,13 @@ $charlesriverblue: #091F2F;
 
   &--smallTop {
     padding-top: 35px;
+  }
+
+  &__location {
+    float: right;
+    font-size: 150%;
+    font-style: italic;
+    margin-top: -1.57em;
   }
 
   &__title {
@@ -124,4 +132,36 @@ $charlesriverblue: #091F2F;
   font-family: 'Montserrat', sans-serif;
   font-size: 2.5em;
   margin-left: auto;
+}
+
+.breadcrumb {
+  color: $freedomtrailred;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  max-width: 90em;
+  margin: 35px auto -15px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px;
+  border-left: 0;
+  border-style: dashed;
+  border-color: #e0e0e0;
+  line-height: 2.16667rem;
+
+  @media (max-width: 1100px) {
+    margin: 0 20px;
+  }
+
+  & a {
+    color: $charlesriverblue;
+    text-decoration: none;
+  }
+
+  & .crumbs-separator {
+    color: rgb(210, 210, 210);
+    display: inline-block;
+    padding: 0 10px;
+  }
+
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526145509) do
+ActiveRecord::Schema.define(version: 20160602200028) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20160526145509) do
     t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "comment"
+    t.string   "day"
+    t.string   "time"
   end
 
   add_index "votes", ["location_id"], name: "index_votes_on_location_id"
