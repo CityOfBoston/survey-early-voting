@@ -54,16 +54,13 @@ var buildMap = function () {
   }
 
   $('#tableComponent').css({position: 'absolute', left: '-9999px'});
-
-  $(window).resize(function () {
-    google.maps.event.trigger(locationMap, 'resize');
-  });
 }
 
 var enableMap = function(e) {
   e.preventDefault();
   $('.map-modal').fadeOut();
   addLocations();
+  locationMap.map.set("disableDefaultUI", false);
 }
 
 var handleResponse = function() {
