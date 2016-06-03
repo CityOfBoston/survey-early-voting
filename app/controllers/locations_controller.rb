@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
           format.html { redirect_to @location, notice: 'Thank-you for voting!' }
           format.json
         else
-          format.html { redirect_to root_path, error: 'There was an error saving your vote. Contact digital@boston.gov if it continues.' }
+          format.html { redirect_to root_path, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.' }
           format.json { render json: @location.errors, status: :unprocessable_entity }
         end
       end

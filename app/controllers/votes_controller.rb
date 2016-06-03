@@ -8,7 +8,7 @@ class VotesController < ApplicationController
       cookies[:posted] = { :value => true, :expires => 1.year.from_now }
       redirect_to @location, notice: 'Thank-you for voting!'
     else
-      redirect_to @location, error: 'There was an error saving your vote. Contact digital@boston.gov if it continues.'
+      redirect_to @location, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.'
     end
   end
 
