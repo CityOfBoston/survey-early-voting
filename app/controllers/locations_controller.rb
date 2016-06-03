@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    @has_posted = cookies[:posted] || false
   end
 
   # GET /locations/1

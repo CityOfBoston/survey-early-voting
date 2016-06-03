@@ -4,6 +4,10 @@ $.ajaxSetup({
 
 var locationMap;
 
+var addLocations = function() {
+  $('.location').each(addLocation);
+}
+
 var addLocation = function () {
   var el = $(this);
 
@@ -25,7 +29,8 @@ var buildMap = function () {
     lng: -71.057996,
     mapType: 'roadmap',
     zoom: 13,
-    scrollwheel: false
+    scrollwheel: false,
+    disableDefaultUI: true
   });
 
   GMaps.geolocate({
@@ -37,9 +42,13 @@ var buildMap = function () {
     }
   });
 
-  $('.location').each(addLocation);
-
   $('#tableComponent').css({position: 'absolute', left: '-9999px'});
+}
+
+var enableMap = function(e) {
+  e.preventDefault();
+  $('.map-modal').fadeOut();
+  addLocations();
 }
 
 var handleResponse = function() {
@@ -64,13 +73,16 @@ var hasVoted = function () {
 
   // If they've voted, hide everything
   if (voted == 'true') {
-    $('form.button_to').remove();
-    $('.location-template h3').text('Thank-you for voting previously');
+    $('.gm-style-iw .btn').remove();
   }
 }
 
-$(document).ready(function () {
+var ready = function () {
   hasVoted();
   buildMap();
   handleResponse();
-});
+  $('#mapEnable').click(enableMap);
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
