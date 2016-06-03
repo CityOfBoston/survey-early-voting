@@ -33,16 +33,31 @@ var buildMap = function () {
     disableDefaultUI: true
   });
 
-  GMaps.geolocate({
-    success: function(position) {
-      locationMap.setCenter(position.coords.latitude, position.coords.longitude);
-    },
-    error: function(position) {
-      locationMap.setCenter(42.360331, -71.057996);
-    }
-  });
+  if ($('#location').length === 1) {
+    var el = $('#location');
+
+    locationMap.addMarker({
+      lat: el.data('lat'),
+      lng: el.data('lng')
+    });
+
+    locationMap.setCenter(el.data('lat'), el.data('lng'));
+  } else {
+    GMaps.geolocate({
+      success: function(position) {
+        locationMap.setCenter(position.coords.latitude, position.coords.longitude);
+      },
+      error: function(position) {
+        locationMap.setCenter(42.360331, -71.057996);
+      }
+    });
+  }
 
   $('#tableComponent').css({position: 'absolute', left: '-9999px'});
+
+  $(window).resize(function () {
+    google.maps.event.trigger(locationMap, 'resize');
+  });
 }
 
 var enableMap = function(e) {

@@ -1,5 +1,6 @@
 <div class="header">
   <h1>City of Boston Early Voting Location Selection</h1>
+  <div id="map" class="hidden"></div>
 </div>
 
 <div id="breadcrumb">
@@ -8,7 +9,7 @@
   </div>
 </div>
 
-<div class="component component--centered <% if !@has_posted %>squiggle-border-bottom<% end %>">
+<div id="location" data-lat="<%= @location.lat %>" data-lng="<%= @location.lng %>" class="component component--centered <% if !@has_posted %>squiggle-border-bottom<% end %>">
   <div class="component__title">
     <h2><%= @location.name %></h2>
     <div class="component__location"><%= @location.description %></div>

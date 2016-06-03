@@ -31,10 +31,14 @@ $freedomtrailred: rgb(251,77,66);
   font-variant-caps: normal;
   font-weight: normal;
   line-height: 2.22222222;
+
+  @media (max-width: 800px) {
+    width: 75%;
+  }
 }
 
 .label-radio {
-  font-size: 100%;
+  font-size: 120%;
   padding: 10px 0;
   position: relative;
   display: flex;
