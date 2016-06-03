@@ -13,12 +13,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, autoDisplay: true});
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <%= yield %>
   <script src="//cob-header.herokuapp.com/header.js"></script>
   <footer class="footer" aria-role="hidden"></footer>
