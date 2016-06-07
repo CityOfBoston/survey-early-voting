@@ -16,23 +16,14 @@ class LocationsController < ApplicationController
   end
 
   def yay
-    if cookies[:posted]
-      @location.votes.build
+    @vote = @location.votes.build
 
-      respond_to do |format|
-        if @location.save
-          cookies[:posted] = { :value => true, :expires => 1.year.from_now }
-          format.html { redirect_to @location, notice: 'Thank-you for voting!' }
-          format.json
-        else
-          format.html { redirect_to root_path, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.' }
-          format.json { render json: @location.errors, status: :unprocessable_entity }
-        end
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to @location, notice: 'Thank-you for voting previously!' }
-        format.json
+    respond_to do |format|
+      if @vote.save
+        cookies[:posted] = { :value => true, :expires => 1.year.from_now }
+        format.html { redirect_to location_vote_path(@location, @vote), notice: 'Thank-you for voting!' }
+      else
+        format.html { redirect_to root_path, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.' }
       end
     end
   end

@@ -28,7 +28,7 @@
         <tr class="location" data-lng="<%= location.lng %>" data-lat="<%= location.lat %>" data-template="#location-<%=location.id %>">
           <td><%= location.name %></td>
           <td><%= location.description %></td>
-          <td><%= link_to location, {class: 'btn btn-small btn-yay'} do %>This one<% end %></td>
+          <td><%= button_to yay_location_path(location), {method: :post}, {class: 'btn btn-small btn-yay'} do %>This one<% end %></td>
         </tr>
       <% end %>
     </tbody>
@@ -41,7 +41,7 @@
       <h3>Would you like to vote for?</h3>
       <h4><%= location.name %></h4>
       <address><%= simple_format location.description %></address>
-      <%= link_to location, {class: 'btn btn-small btn-yay'} do %>This one<% end %>
+      <%= button_to yay_location_path(location), {method: :post}, {class: 'btn btn-small btn-yay'} do %>This one<% end %>
     </div>
   <% end %>
 </div>

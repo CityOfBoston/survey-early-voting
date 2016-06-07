@@ -1,15 +1,20 @@
 class VotesController < ApplicationController
-  def create
+  def update
     @location = Location.find(params[:location_id])
+    @vote = Vote.find(params[:id])
 
-    @vote = @location.votes.build(vote_params)
-
-    if @vote.save
+    if @vote.update(vote_params)
       cookies[:posted] = { :value => true, :expires => 1.year.from_now }
       redirect_to @location, notice: 'Thank-you for voting!'
     else
       redirect_to @location, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.'
     end
+  end
+
+  def show
+    @location = Location.find(params[:location_id])
+    @vote = Vote.find(params[:id])
+    @has_posted = cookies[:posted] || false
   end
 
   private

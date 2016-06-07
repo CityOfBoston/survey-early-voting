@@ -9,14 +9,14 @@
   </div>
 </div>
 
-<div id="location" data-lat="<%= @location.lat %>" data-lng="<%= @location.lng %>" class="component component--centered <% if !@has_posted %>squiggle-border-bottom<% end %>">
+<div id="location" data-lat="<%= @location.lat %>" data-lng="<%= @location.lng %>" class="component component--centered">
   <div class="component__title">
     <h2><%= @location.name %></h2>
     <div class="component__location"><%= @location.description %></div>
   </div>
   <% if !@has_posted %>
     <div class="component__intro">
-      You've selected <%= @location.name %> as your preferred early voting location. Now please let us know when would be most convenient for you to visit this location.
+      Please <%= link_to "select a location", root_path %> to let us know your preferred voting location.
     </div>
   <% else %>
     <div class="component__intro">
@@ -24,35 +24,3 @@
     </div>
   <% end %>
 </div>
-
-<% if !@has_posted %>
-  <div class="component component--centered component--smallTop">
-    <%= form_for [@location, Vote.new] do |f| %>
-      <div class="form-item form-type-textfield form-item-name">
-        <%= f.label :day, "Which day is most convenient?", class: 'block-label' %>
-        <%= f.collection_radio_buttons :day, [['sunday', 'Sunday'], ['monday', 'Monday'], ['tuesday', 'Tuesday'], ['wednesday', 'Wednesday'], ['thursday', 'Thursday'], ['friday', 'Friday'], ['saturday', 'Saturday']], :first, :last do |b| %>
-          <%= b.label class:"label-radio" do%>
-            <%= b.radio_button %>
-            <span class="outer"><span class="inner"></span></span>
-            <span><%= b.text %></span>
-          <%end%>
-        <% end %>
-      </div>
-      <div class="form-item form-type-textfield form-item-name">
-        <%= f.label :time, "What time of day is most convenient?", class: 'block-label' %>
-        <%= f.collection_radio_buttons :time, [['early_morning', '6AM-9AM'], ['morning', '9AM-12PM'], ['early_afternoon', '12PM-3PM'], ['afternoon', '3PM-6PM'], ['evening', '6PM-9PM']], :first, :last do |b| %>
-          <%= b.label class:"label-radio" do%>
-            <%= b.radio_button %>
-            <span class="outer"><span class="inner"></span></span>
-            <span><%= b.text %></span>
-          <%end%>
-        <% end %>
-      </div>
-      <div class="form-item form-type-textfield form-item-name">
-        <%= f.label :comment, "Anything else you'd like us to know?", class: 'block-label' %>
-        <%= f.text_field :comment, :class => "form-text", :size => 60, :maxlength => 200 %>
-      </div>
-      <%= f.button :class => "btn" do %>Vote for <%= @location.name %><% end %>
-    <% end %>
-  </div>
-<% end %>
