@@ -4,6 +4,8 @@ class Vote < ActiveRecord::Base
 
   validates :location, presence: true
 
+  obfuscate_id
+
   private
 
   def notify_pusher
