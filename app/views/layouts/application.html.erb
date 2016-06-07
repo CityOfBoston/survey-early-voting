@@ -16,5 +16,12 @@
   <%= yield %>
   <script src="//cob-header.herokuapp.com/header.js"></script>
   <footer class="footer" aria-role="hidden"></footer>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: ['en', 'en-us'], autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
