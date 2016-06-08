@@ -4,8 +4,20 @@ $.ajaxSetup({
 
 var locationMap;
 
+var addCityHall = function() {
+  locationMap.addMarker({
+    lat: 42.360331,
+    lng: -71.057996,
+    infoWindow: {
+      content: '<div class="location-template" style="max-width: 300px"><h4>City Hall</h4><div>City Hall will be open during normal hours for early voting. You can select another location as your preferred location.</div></div>'
+    }
+  });
+}
+
 var addLocations = function() {
   $('.location').each(addLocation);
+
+  addCityHall();
 }
 
 var addLocation = function () {
