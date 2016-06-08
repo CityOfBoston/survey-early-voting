@@ -6,11 +6,12 @@
   <div class="component__title">
     <h2>Early Voting</h2>
   </div>
-  <div class="component__intro">Early voting is similar to absentee voting, however all residents are eligible. Throughout the week prior to Election Day, you will be able to mail in ballots to the Elections Department or vote at any of the nine locations around the City. Unlike traditional polling, you are not assigned to one location and can visit the early voting location that is most convenient for you.</div>
+  <div class="component__intro">This fall, the City of Boston will be implementing early voting for the first time. Early voting is similar to absentee voting, however all residents are eligible to participate. From <strong>October 24 through November 7</strong>, you will be able to mail ballots to the Elections Department or vote at any early voting location around the City. Unlike traditional polling, you are not assigned to one location and can visit the location that is most convenient for you.</div>
 </div>
 <div class="component component--centered component--smallTop">
-  <h3>Where do I vote?</h3>
-  <p>Locations for early voting have not been decided. We're looking for input from residents on where to place early voting sites so they will be convenient for residents—accessible from your home, on your lunch break, or while running errands.</p>
+  <h3>Where and when do I vote?</h3>
+  <p>Locations for early voting have not been decided. Unlike traditional voting, you are not assigned to a single polling location and can visit the early voting location that is most convenient for you.</p>
+  <p>We're looking for input from residents on where to place early voting sites and what hours would be most convenient for residents—accessible from your home, on your lunch break, or while running errands.</p>
 </div>
 
 
@@ -50,11 +51,11 @@
   <div class="map-modal">
     <div class="map-component component">
       <h3>Tell us where you want to vote</h3>
-      <p>Choose a site on the map that you would like to see as an early voting location. <em><strong>This will not impact our regular voting locations.</strong></em></p>
+      <p>You can help us determine early voting sites by choosing a location that you would likely use. After selecting a site, you will be asked for days and times that you would prefer. This will not impact your regular polling location.</p>
       <% unless @has_posted %>
         <button id="mapEnable" class="btn">Select a location</button>
       <% else %>
-        <p><em>Thank-you for participating previously.</em></p>
+        <p><em>Thank you for participating previously.</em></p>
       <% end %>
     </div>
   </div>

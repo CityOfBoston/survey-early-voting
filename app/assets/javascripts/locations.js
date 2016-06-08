@@ -9,7 +9,7 @@ var addCityHall = function() {
     lat: 42.360331,
     lng: -71.057996,
     infoWindow: {
-      content: '<div class="location-template" style="max-width: 300px"><h4>City Hall</h4><div>City Hall will be open during normal hours for early voting. You can select another location as your preferred location.</div></div>'
+      content: '<div class="location-template" style="max-width: 300px"><h4>City Hall</h4><div>City Hall has already been selected as an early voting location between October 24 - November 7, 2016.</div></div>'
     }
   });
 }
@@ -82,8 +82,8 @@ var handleResponse = function() {
 
     // Let's remove unnecessary elements
     $('form.button_to').remove();
-    $('.location-template h3').text('Thank-you for voting');
-    parent.find('h3').html('Thank-you for voting for ' + parent.find('h4').text());
+    $('.location-template h3').text('Thank you for voting');
+    parent.find('h3').html('Thank you for voting for ' + parent.find('h4').text());
 
     // Lets track if they've voted
     localStorage.setItem('hasVoted', true);

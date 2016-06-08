@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @vote.save
         cookies[:posted] = { :value => true, :expires => 1.year.from_now }
-        format.html { redirect_to location_vote_path(@location, @vote), notice: 'Thank-you for voting!' }
+        format.html { redirect_to location_vote_path(@location, @vote), notice: 'Thank you for voting!' }
       else
         format.html { redirect_to root_path, error: 'There was an error saving your vote. Contact EVfeedback@boston.gov if it continues.' }
       end
