@@ -52,11 +52,7 @@
     <div class="map-component component">
       <h3>Tell us where you want to vote</h3>
       <p>You can help us determine early voting sites by choosing a location that you would likely use. After selecting a site, you will be asked for days and times that you would prefer. This will not impact your regular polling location.</p>
-      <% unless @has_posted %>
-        <button id="mapEnable" class="btn">Select a location</button>
-      <% else %>
-        <p><em>Thank you for participating previously.</em></p>
-      <% end %>
+      <p><em>Thank you for your interest. Voting has closed and we'll release an early voting schedule shortly.</em></p>
     </div>
   </div>
   <div id="map" class="hidden"></div>
