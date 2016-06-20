@@ -1,0 +1,7 @@
+<%- headers = ['Location', 'Location ID', 'Preferred Day', 'Preferred Time', 'Comment'] -%>
+<%= CSV.generate_line headers %>
+<%- @locations.each do |location| -%>
+  <%- location.votes.each do |vote| %>
+    <%= CSV.generate_line([location.name, location.id, vote.day, vote.time, vote.comment]) -%>
+  <%- end -%>
+<%- end -%>
